@@ -1,21 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تتبع الجهاز</title>
 
+<style>
+body {
+  font-family: Arial;
+  background: #f5f5f5;
+  text-align: center;
+  padding: 20px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+input {
+  padding: 10px;
+  width: 80%;
+  margin-top: 10px;
+}
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+.hidden { display: none; }
+</style>
+</head>
 
+<body>
 
+<h2>تتبع جهازك</h2>
 
+<div class="card">
+  <p>أدخل رقم الجهاز</p>
+  <input id="serial" placeholder="H-26-00001">
+  <br>
+  <button onclick="search()">بحث</button>
+</div>
 
+<div id="result" class="card hidden">
+  <h3 id="status"></h3>
+  <p id="device"></p>
+  <p id="fault"></p>
+</div>
 
+<script>
+function search() {
+  const serial = document.getElementById("serial").value;
 
+  // تجربة مؤقتة
+  if (serial === "H-26-00001") {
+    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("status").innerText = "الحالة: جاري الصيانة";
+    document.getElementById("device").innerText = "ثلاجة - Bosch";
+    document.getElementById("fault").innerText = "العطل: لا تبريد";
+  } else {
+    alert("الجهاز غير موجود");
+  }
+}
+</script>
 
-
-تتبع جهازك
-
-
-
-
-بحث
-
-
-
-
-
-
+</body>
+</html>
